@@ -1,0 +1,125 @@
+:root {
+  color-scheme: light dark;
+  font-family: "Segoe UI", system-ui, sans-serif;
+  line-height: 1.45;
+}
+
+body {
+  margin: 0;
+  background: #f4f6f8;
+  color: #1c2430;
+}
+
+.page {
+  max-width: 640px;
+  margin: 0 auto;
+  padding: 32px 20px 48px;
+}
+
+.header h1 {
+  margin: 0 0 8px;
+  font-size: 28px;
+}
+
+.tagline,
+.hint {
+  margin: 0;
+  color: #4b5565;
+}
+
+.section {
+  margin-top: 24px;
+  padding: 16px 18px;
+  background: #fff;
+  border: 1px solid #d8dee6;
+  border-radius: 12px;
+}
+
+.section h2 {
+  margin: 0 0 10px;
+  font-size: 16px;
+}
+
+.status {
+  margin: 0 0 12px;
+}
+
+button {
+  border: 0;
+  border-radius: 8px;
+  padding: 8px 14px;
+  background: #0b6e4f;
+  color: #fff;
+  font: inherit;
+  cursor: pointer;
+}
+
+button.secondary {
+  margin-left: 8px;
+  background: #e7edf2;
+  color: #1c2430;
+}
+
+.field,
+.checkbox {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 10px 0;
+}
+
+.field input[type="number"] {
+  width: 88px;
+  padding: 6px 8px;
+  font: inherit;
+}
+
+.error {
+  color: #9b1c1c;
+}
+
+.log {
+  margin: 4px 0 12px;
+  padding: 8px 10px;
+  background: #f4f6f8;
+  border-radius: 8px;
+  white-space: pre-wrap;
+}
+
+.log.has-error {
+  color: #9b1c1c;
+  background: #fdecec;
+}
+
+.label {
+  margin: 0;
+  font-size: 13px;
+  color: #4b5565;
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+    background: #12161c;
+    color: #e8eef5;
+  }
+
+  .tagline,
+  .hint,
+  .label {
+    color: #b7c2cf;
+  }
+
+  .section {
+    background: #1b222c;
+    border-color: #2c3644;
+  }
+
+  button.secondary {
+    background: #2c3644;
+    color: #e8eef5;
+  }
+
+  .log {
+    background: #12161c;
+  }
+}

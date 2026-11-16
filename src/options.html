@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Meet Alert Options</title>
+    <link rel="stylesheet" href="./options.css" />
+  </head>
+  <body>
+    <main class="page">
+      <header class="header">
+        <h1>Meet Alert</h1>
+        <p class="tagline">
+          Sticky alerts before Meet starts and when guests join — even with no tab focused.
+        </p>
+      </header>
+
+      <section class="section" aria-labelledby="account-heading">
+        <h2 id="account-heading">Account</h2>
+        <p id="account-status" class="status">Not signed in</p>
+        <button type="button" id="sign-in">Sign in with Google</button>
+        <button type="button" id="sync-now" class="secondary">Sync calendar now</button>
+      </section>
+
+      <section class="section" aria-labelledby="oauth-heading">
+        <h2 id="oauth-heading">OAuth client ID</h2>
+        <p class="hint">
+          Create a Chrome Extension OAuth client in Google Cloud Console. Replace
+          <code>REPLACE_WITH_OAUTH_CLIENT_ID</code> in <code>src/manifest.ts</code>, rebuild, and
+          reload the extension. Sign-in reads that installed manifest value.
+        </p>
+        <p id="manifest-client" class="status"></p>
+        <p id="oauth-error" class="error" hidden></p>
+      </section>
+
+      <section class="section" aria-labelledby="alerts-heading">
+        <h2 id="alerts-heading">Alerts</h2>
+        <label class="field">
+          <span>Minutes before start</span>
+          <input type="number" id="lead-minutes" min="0" max="1440" step="1" />
+        </label>
+        <label class="checkbox">
+          <input type="checkbox" id="mute" />
+          <span>Mute chime</span>
+        </label>
+        <button type="button" id="test-chime" class="secondary">Test chime</button>
+      </section>
+
+      <section class="section" aria-labelledby="errors-heading">
+        <h2 id="errors-heading">Status</h2>
+        <p class="label">Last sync error</p>
+        <pre id="last-error" class="log">None</pre>
+        <p class="label">Meet API error</p>
+        <pre id="meet-error" class="log">None</pre>
+      </section>
+    </main>
+    <script type="module" src="./options.ts"></script>
+  </body>
+</html>
