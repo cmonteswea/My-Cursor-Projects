@@ -36,7 +36,7 @@ For local iteration you can also run `npm run dev` and load the CRXJS dev output
    - `https://www.googleapis.com/auth/userinfo.email`
    - `https://www.googleapis.com/auth/userinfo.profile`
 4. Create credentials → **OAuth client ID** → Application type **Chrome extension**.
-5. Set the **Application ID** to your extension ID from `chrome://extensions`.
+5. Set the **Application ID** to the extension ID. The manifest pins it to `fjejebimnlglcfcjfkfnpfcaodphpphd`, and the Options page shows the ID the browser actually loaded.
 6. Copy the client ID (`….apps.googleusercontent.com`).
 
 ### Wire the client ID

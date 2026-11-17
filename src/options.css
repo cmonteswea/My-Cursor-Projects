@@ -42,6 +42,7 @@ body {
 
 .status {
   margin: 0 0 12px;
+  white-space: pre-line;
 }
 
 button {

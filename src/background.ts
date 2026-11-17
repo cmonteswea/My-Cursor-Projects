@@ -77,8 +77,22 @@ async function saveAlertStates(
   await chrome.storage.local.set({ [STORAGE_KEYS.alertStates]: states });
 }
 
+async function setBadge(error: string | null): Promise<void> {
+  if (error) {
+    await chrome.action.setBadgeBackgroundColor({ color: "#b3261e" });
+    await chrome.action.setBadgeText({ text: "!" });
+    await chrome.action.setTitle({
+      title: `Meet Alert is not working: ${error}\nClick to open settings.`,
+    });
+  } else {
+    await chrome.action.setBadgeText({ text: "" });
+    await chrome.action.setTitle({ title: "Meet Alert" });
+  }
+}
+
 async function setLastError(msg: string | null): Promise<void> {
   await chrome.storage.local.set({ [STORAGE_KEYS.lastError]: msg });
+  await setBadge(msg);
 }
 
 async function setMeetApiError(msg: string | null): Promise<void> {
@@ -531,6 +545,10 @@ chrome.alarms.onAlarm.addListener((alarm) => {
       await pollGuests();
     }
   });
+});
+
+chrome.action.onClicked.addListener(() => {
+  void chrome.runtime.openOptionsPage();
 });
 
 chrome.runtime.onInstalled.addListener(() => {

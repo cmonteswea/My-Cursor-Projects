@@ -44,9 +44,10 @@ function updateOauthError(settings: Settings): void {
   const errEl = $("oauth-error");
   const clientId = manifestClientId();
   const manifestEl = $("manifest-client");
+  const idLine = `Extension ID (use as the OAuth Application ID): ${chrome.runtime.id}`;
   manifestEl.textContent = hasConfiguredClientId(settings, clientId)
-    ? `Manifest client ID: ${clientId}`
-    : "Manifest client ID: not set";
+    ? `Manifest client ID: ${clientId}\n${idLine}`
+    : `Manifest client ID: not set\n${idLine}`;
   if (!hasConfiguredClientId(settings, clientId)) {
     errEl.hidden = false;
     errEl.textContent =
